@@ -5,18 +5,19 @@ import CountdownTimer from '../../CountdownTimer';
 import CarImage from '../../CarImage';
 import DetailedSpecs from './DetailedSpecs';
 import { getCurrentUser } from '@/app/actions/authActions';
+import BidList from './BidList';
 import EditButton from './EditButton';
 import DeleteButton from './DeleteButton';
-import BidList from './BidList';
 
 export default async function Details({ params }: {params: { id: string } }) {
 
-  const data = await getDetailedViewData(params.id);
+  const { id } = await params;
+  const data = await getDetailedViewData(id);
   const user = await getCurrentUser();
 
   return (
     <div>
-      <div className='flex justify-between'>
+      <div className='mb-6 sm:mb-2 flex flex-col sm:flex-row gap-2 sm:gap-0 justify-between'>
         <div className='flex items-center gap-3'>
           <Heading
             title={`${data.make} ${data.model}`}
@@ -33,7 +34,7 @@ export default async function Details({ params }: {params: { id: string } }) {
           <CountdownTimer auctionEnd={data.auctionEnd} />
         </div>
       </div>
-      <div className='grid grid-cols-2 gap-6 mt-3'>
+      <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 mt-3'>
         <div className='w-full bg-gray-200 relative aspect-[4/3] rounded-lg overflow-hidden'>
           <CarImage imageUrl={data.imageUrl} />
         </div>
@@ -41,7 +42,7 @@ export default async function Details({ params }: {params: { id: string } }) {
           <BidList user={user} auction={data} />
         </div>
       </div>
-      <div className='mt-3 grid grid-cols-1 rounded-lg'>
+      <div className='mt-3 mb-6 grid grid-cols-1 rounded-lg'>
         <DetailedSpecs auction={data} />
       </div>
     </div>

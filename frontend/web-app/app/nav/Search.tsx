@@ -1,7 +1,7 @@
 'use client';
 import { useParamsStore } from '@/hooks/useParamsStore';
 import { usePathname, useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import React from 'react';
 import { FaSearch } from 'react-icons/fa';
 
 export default function Search() {
@@ -23,7 +23,7 @@ export default function Search() {
   };
 
   return (
-    <div className='flex w-[50%] items-center border-2 rounded-full py-2 shadow-sm'>
+    <div className='flex w-[220px] md:w-[50%] items-center border-2 rounded-full py-2 shadow-sm'>
       <input
         onKeyDown={(e: any) => {
           if (e.key === 'Enter') search();
@@ -38,10 +38,11 @@ export default function Search() {
       />
       <button
         onClick={search}
+        className='w-[60px] flex items-center justify-center'
       >
         <FaSearch
           size={34}
-          className='bg-red-400 text-white rounded-full p-2 cursor-pointer mx-2' />
+          className='bg-green-600 text-white rounded-full p-2 cursor-pointer mx-2' />
       </button>
     </div>
   );

@@ -8,6 +8,7 @@
 
 @layer components {
     .input-custom {
-        @apply flex-grow pl-5 bg-transparent focus:outline-none border-transparent focus:border-transparent focus:ring-0
+        @apply pl-3 sm:pl-5 w-[160px] flex-grow-0 sm:flex-grow bg-transparent
+         focus:outline-none border-transparent focus:border-transparent focus:ring-0
     }
 }

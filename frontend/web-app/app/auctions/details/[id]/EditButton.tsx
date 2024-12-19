@@ -1,7 +1,7 @@
 'use client';
-import { Button } from 'flowbite-react';
 import Link from 'next/link';
 import React from 'react'
+import { AiOutlineEdit } from 'react-icons/ai';
 
 type Props = {
   id: string;
@@ -9,8 +9,11 @@ type Props = {
 
 export default function EditButton({ id }: Props) {
   return (
-    <Button outline>
-      <Link href={`/auctions/update/${id}`}>Update Auction</Link>
-    </Button>
+    <Link
+      href={`/auctions/update/${id}`}
+      className='p-2 hover:bg-black/5 rounded-lg'
+    >
+      <AiOutlineEdit size={30} />
+    </Link>
   );
 };

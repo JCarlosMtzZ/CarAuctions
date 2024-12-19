@@ -1,12 +1,13 @@
 'use client';
 import { useParamsStore } from '@/hooks/useParamsStore';
-import { Button, Dropdown, DropdownDivider, DropdownItem } from 'flowbite-react';
+import { Dropdown, DropdownDivider, DropdownHeader, DropdownItem } from 'flowbite-react';
 import { User } from 'next-auth';
 import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
 import { AiFillCar, AiFillTrophy, AiOutlineLogout } from 'react-icons/ai';
+import { FaRegUser } from 'react-icons/fa';
 import { HiCog, HiUser } from 'react-icons/hi';
 
 type Props = {
@@ -32,27 +33,32 @@ export default function UserActions({ user }: Props) {
   };
 
   return (
-    <Dropdown inline label={`Welcome ${user.name}`}>
-      <DropdownItem icon={HiUser} onClick={setSeller}>
-        My Auctions
-      </DropdownItem>
-      <DropdownItem icon={AiFillTrophy} onClick={setWinner}>
-        Auctions won
-      </DropdownItem>
-      <DropdownItem icon={AiFillCar}>
-        <Link href='/auctions/create'>
-          Sell my car
-        </Link>
-      </DropdownItem>
-      <DropdownItem icon={HiCog}>
-        <Link href='/session'>
-          Session (dev only!)
-        </Link>
-      </DropdownItem>
-      <DropdownDivider />
-      <DropdownItem icon={AiOutlineLogout} onClick={() => signOut({ redirectTo: '/' })}>
-        Sign out
-      </DropdownItem>
-    </Dropdown>
+    <div className='hover:bg-black/5 rounded-lg p-2 text-green-600'>
+      <Dropdown inline label={<FaRegUser size={26} className='-mr-1' />} >
+        <DropdownHeader>
+          <span className='font-semibold'>{user.name}</span>
+        </DropdownHeader>
+        <DropdownItem icon={HiUser} onClick={setSeller}>
+          My Auctions
+        </DropdownItem>
+        <DropdownItem icon={AiFillTrophy} onClick={setWinner}>
+          Auctions won
+        </DropdownItem>
+        <DropdownItem icon={AiFillCar}>
+          <Link href='/auctions/create'>
+            Sell my car
+          </Link>
+        </DropdownItem>
+        <DropdownItem icon={HiCog}>
+          <Link href='/session'>
+            Session (dev only!)
+          </Link>
+        </DropdownItem>
+        <DropdownDivider />
+        <DropdownItem icon={AiOutlineLogout} onClick={() => signOut({ redirectTo: '/' })}>
+          Sign out
+        </DropdownItem>
+      </Dropdown>
+    </div>
   );
 };

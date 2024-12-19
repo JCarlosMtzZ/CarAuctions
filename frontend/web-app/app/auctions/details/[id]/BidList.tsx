@@ -52,10 +52,8 @@ export default function BidList({ user, auction }: Props) {
 
   return (
     <div className='rounded-lg shadow-md'>
-      <div className='py-2 px-4 bg-white'>
-        <div className='sticke top-0 bg-white p-2'>
-          <Heading title={`Current high bid is $${numberWithCommas(highBid)}`} />
-        </div>
+      <div className='py-2 px-4 sticky top-0 bg-white p-2'>
+        <Heading title={`Current high bid is $${numberWithCommas(highBid)}`} />
       </div>
       <div className='overflow-auto h-[400px] flex flex-col-reverse px-2'>
         {bids.length === 0 ? (

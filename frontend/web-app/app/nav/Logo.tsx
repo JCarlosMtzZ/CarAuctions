@@ -17,9 +17,12 @@ export default function Logo() {
   const reset = useParamsStore(state => state.reset);
 
   return (
-    <div onClick={doReset} className="cursor-pointer flex items-center gap-2 text-3xl font-semibold text-red-500">
+    <div
+      onClick={doReset}
+      className="hover:bg-black/5 rounded-lg p-2 cursor-pointer flex items-center gap-2 text-3xl font-semibold text-green-600"
+    >
       <AiOutlineCar size={34} />
-      <div>Carsties Auctions</div>
+      <div className='hidden sm:block'>Carsties Auctions</div>
     </div>
   );
 };

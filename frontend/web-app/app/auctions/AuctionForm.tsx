@@ -30,7 +30,14 @@ export default function AuctionForm({ auction }: Props) {
       reset({ make, model, color, year, mileage });
     }
     setFocus('make');
-  }, [setFocus]);
+  }, [auction, reset, setFocus]);
+
+  function onCancel() {
+    if (pathname === '/auctions/create')
+      router.push('/');
+    else
+      router.push(`/auctions/details/${auction?.id}`)
+  }
 
   async function onSubmit(data: FieldValues) {
     try {
@@ -116,7 +123,7 @@ export default function AuctionForm({ auction }: Props) {
         </>
       }
       <div className='flex justify-between'>
-        <Button outline color='gray'>Cancel</Button>
+        <Button outline color='gray' onClick={onCancel}>Cancel</Button>
         <Button 
           isProcessing={isSubmitting}
           disabled={!isValid}

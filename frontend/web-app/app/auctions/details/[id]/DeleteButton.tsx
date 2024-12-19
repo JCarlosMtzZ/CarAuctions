@@ -4,6 +4,7 @@ import { Button } from 'flowbite-react';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import { RiDeleteBin5Line } from 'react-icons/ri';
 
 type Props = {
   id: string;
@@ -28,8 +29,14 @@ export default function DeleteButton({ id }: Props) {
   };
 
   return (
-    <Button color='failure' isProcessing={loading} onClick={doDelete}>
-      Delete Auction
+    <Button
+      size='xs'
+      className='rounded-lg border-none'
+      color='failure'
+      isProcessing={loading}
+      onClick={doDelete}
+    >
+      <RiDeleteBin5Line size={26} />
     </Button>
   );
 };
