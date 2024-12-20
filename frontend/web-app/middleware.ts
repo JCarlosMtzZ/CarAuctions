@@ -2,7 +2,9 @@ export { auth as middleware } from '@/auth';
 
 export const config = {
     matcher: [
-        '/session'
+        '/session',
+        '/auctions/create',
+        '/auctions/update/:id'
     ],
     pages: {
         signIn: '/api/auth/signin'

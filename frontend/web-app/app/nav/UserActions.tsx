@@ -8,7 +8,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
 import { AiFillCar, AiFillTrophy, AiOutlineLogout } from 'react-icons/ai';
 import { FaRegUser } from 'react-icons/fa';
-import { HiCog, HiUser } from 'react-icons/hi';
+import { HiUser } from 'react-icons/hi';
 
 type Props = {
   user: User;
@@ -49,11 +49,11 @@ export default function UserActions({ user }: Props) {
             Sell my car
           </Link>
         </DropdownItem>
-        <DropdownItem icon={HiCog}>
+        {/*<DropdownItem icon={HiCog}>
           <Link href='/session'>
             Session (dev only!)
           </Link>
-        </DropdownItem>
+        </DropdownItem>*/}
         <DropdownDivider />
         <DropdownItem icon={AiOutlineLogout} onClick={() => signOut({ redirectTo: '/' })}>
           Sign out

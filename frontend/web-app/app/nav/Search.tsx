@@ -13,6 +13,7 @@ export default function Search() {
   const searchValue = useParamsStore(state => state.searchValue);
   const setSearchValue = useParamsStore(state => state.setSearchValue);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function onChange(event: any) {
     setSearchValue(event.target.value);
   };
@@ -25,6 +26,7 @@ export default function Search() {
   return (
     <div className='flex w-[220px] md:w-[50%] items-center border-2 rounded-full py-2 shadow-sm'>
       <input
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         onKeyDown={(e: any) => {
           if (e.key === 'Enter') search();
         }}
