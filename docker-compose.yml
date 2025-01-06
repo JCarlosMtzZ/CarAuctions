@@ -124,7 +124,7 @@ services:
     environment:
       - AUTH_SECRET="NrNt2jFy/jg9QGJfSx3IEm+xIOLr3nlzPDMvsm7ikc8="
       - AUTH_URL=https://app.carsties.local
-      - AUTH_URL_INTERNAL:http://web-app:3000
+      - AUTH_URL_INTERNAL=http://web-app:3000
       - API_URL=http://gateway-svc/
       - ID_URL=https://id.carsties.local
       - ID_URL_INTERNAL=http://identity-svc
